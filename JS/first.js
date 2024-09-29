@@ -1,21 +1,35 @@
-console.log(this);
+const a = true, b = 123.45, c = '안녕하세요!';
 
-console.log('Hello');
-// 사뿐히 즈려밟고 가시옵소서
-// console.log('나를 밟고 가라');
-console.log('World');
+console.log(a, typeof a);
+console.log(b, typeof b);
+console.log(c, typeof c);
 
-/* 주석은 이와 같이 여러 줄에 걸쳐
-작성할 수도 있습니다.
-장문의 주석을 달거나
+let d;
+console.log(d, typeof d);
 
-console.log('안찍힘');
-console.log('이것도 안 찍힘');
+d = null;
+console.log(d, typeof d); // ⚠️ 'object' 반환
 
-위와 같이
-코드의 일부를 주석처리하여
-비활성화는 등의 목적으로 사용되죠. */
+const e = Symbol('hello');
+console.log(typeof e); // 이건 나중에
 
-console.log('찍힘');
+let isEmployed = true;
+let isMarried = false;
 
-console.log('찍힘');
+console.log('직업 있음:', isEmployed);
+console.log('기혼:', isMarried);
+
+let integer = 100; 
+let real = 12.34;
+let negative = -99;
+
+console.log(integer, real, negative);
+
+let first_name = "Brendan";
+let last_name = 'Eich';
+let description = `미국의 프로그래머로
+자바스크립트 언어를 만들었으며
+모질라의 CEO와 CTO를 역임했다.`;
+
+console.log(first_name, last_name);
+console.log(description);
