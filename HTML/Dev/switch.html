@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 수학점수 math가 90점이면 우수 80점이면 보통 70점이면 미흡 60점이면 나머지는 모름
+      let math;
+      math = prompt("수학 점수를 입력해주세요","");
+      switch(math){
+        case "90" :
+            document.write("우수");
+            break;
+        case "80" :
+            document.write("보통");
+            break;
+        case "70" :
+            document.write("미흡");
+            break;
+        case "60" :
+            document.write("저조");
+            break;
+        default :
+            document.write("모름");
+      }
+
+      document.write("<br>")
+      // 입력한 요일에 따라 정상영업인지 아닌지를 출력하세요
+      // 월 ~ 금 까지는 정상영업, 토 ~ 일 까지는 휴무
+      let day;
+      day = prompt("무슨요일 입니까?","");
+      switch(day){
+        case "월" :
+        case "화" :
+        case "수" :
+        case "목" :
+        case "금" :
+          document.write("정상영업 합니다.")
+          break;
+        case "토" :
+        case "일" :
+          document.write("휴일 입니다.")
+          break;
+      }
+    </script>
+  </body>
+</html>

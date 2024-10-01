@@ -35,12 +35,12 @@
     // document.write("후위연산자의 값은 무엇인가요 ? " + p);
     // document.write("<br>")
 
-    document.write("조건 연산자");
-    let a = 2; 
-    let b = 3;
-    let c = (a>b)? "a가 b보다 크다" : "a가 b보다 작다";
-    document.write(c);
-    document.write("<br>")
+    // document.write("조건 연산자");
+    // let a = 2; 
+    // let b = 3;
+    // let c = (a>b)? "a가 b보다 크다" : "a가 b보다 작다";
+    // document.write(c);
+    // document.write("<br>")
 
     // 영어 점수가 90점 이상이면 A
     // 점수가 80점 이상이면 B
@@ -49,7 +49,9 @@
     // 점수가 60점 이하이면 F 
 
     let eng = 0 ;
-    eng = 89;
+    // eng = 89;
+    // prompt 변수에 받게 
+    eng = prompt("점수를 입력하세요","")
     if(eng >= 90) {
       document.write("A 입니다.")
     } else if(eng >= 80) {
@@ -61,6 +63,7 @@
     } else {
       document.wirte("F 입니다.")
     }
+
   </script>
 </body>
 </html>
