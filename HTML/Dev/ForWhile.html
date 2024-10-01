@@ -1,54 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-    //for 문 학습하기
-    // for(let i =0 ; i <= 10 ; i++){
-    //   document.write(i);
-    //   document.write("<br>")
-    // }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //for 문 학습하기
+      // for(let i =0 ; i <= 10 ; i++){
+      //   document.write(i);
+      //   document.write("<br>")
+      // }
 
-    // 1에서 11까지 더하기
-    // let sum = 0;
-    // for(let a = 1 ; a <= 11; a++){
-    //   sum += a;
-    // }
-    // document.write("for문을 사용한 값은?"+sum);
-    // document.write("<br>")
-    // let total = 0;
-    // let b = 1;
-    // while(b <= 11){
-    //   total += b;
-    //   b++;
-    // }
-    // document.write("while문을 사용한 값은?"+total);
+      // 1에서 11까지 더하기
+      // let sum = 0;
+      // for(let a = 1 ; a <= 11; a++){
+      //   sum += a;
+      // }
+      // document.write("for문을 사용한 값은?"+sum);
+      // document.write("<br>")
+      // let total = 0;
+      // let b = 1;
+      // while(b <= 11){
+      //   total += b;
+      //   b++;
+      // }
+      // document.write("while문을 사용한 값은?"+total);
 
-    // 1 에서 100까지의 수 중에 홀수의 합을 구하시오
-    let sum = 0;
-    for(let i = 1 ; i <= 100 ; i++){
-      if(i % 2 == 1){
-        sum += i;
+      // 1 에서 100까지의 수 중에 홀수의 합을 구하시오
+      // let sum = 0;
+      // for(let i = 1 ; i <= 100 ; i++){
+      //   document.write("for문 안에 들어왔음")
+      //   if(i % 2 == 1){
+      //     document.wrtie("if문 안에 들어왔음")
+      //     sum += i;
+      //   }
+      // }
+      // document.write(sum);
+
+      // document.write("<br>")
+
+      // let total = 0;
+      // let b = 1;
+      // while(b<=100){
+      //   if(b % 2 == 1){
+      //     total += b;
+      //   }
+      //   b++;
+      // }
+      // document.write(total)
+
+      // do while 문 학습하기 / 조건식을 하기전에 일단 실행하시오
+      // 형식
+      // 초기식 ;
+      // do {
+      //   증가식
+      // } while(조건식);
+
+      // 일단 한번은 수행하고 조건식을 수행하세요
+      // 1에서 10까지의 수를 출력하시오
+
+      // let k = 0;
+      // do {
+      //   document.write("순서번호 입니다. " + k);
+      //   document.write("<br>");
+      //   k++;
+      // } while (k <= 10);
+
+      //이중 for문 사용하기 : for문 안에 for문
+      //별 그리기
+      // for (let i = 0 ; i < 5 ; i++) {
+      //   for (let j = 0; j < i+1 ; j++) {
+      //       document.write("★");
+      //   }
+      //   document.write("<br>");
+      // }
+      // i값  j값
+      // 0    0
+      // 1    0,1
+      // 2    0,1,2
+      // 3    0,1,2,3
+      // 4    0,1,2,3,4
+
+      // 정위치에 있는 별 찍어보기
+      for(let q = 1 ; q <= 5 ; q++){
+        for(let p = 5-q ; p > 0 ; p--){
+          document.write("&nbsp;&nbsp;&nbsp;");
+        }
+        for(let p = 1; p<= q*2-1; p++){
+          document.write("★");
+        }
+        document.write("<br>")
       }
-    }
-    document.write(sum);
-
-    document.write("<br>")
-
-    let total = 0;
-    let b = 1;
-    while(b<=100){
-      if(b % 2 == 1){
-        total += b;
-      }
-      b++;
-    }
-    document.write(total)
-  </script>
-
-</body>
+    </script>
+  </body>
 </html>
