@@ -520,11 +520,13 @@ delete from member ;
 --
 
 -- 형식
-create index 인덱스 이름 on 테이블이름(인덱스를 걸 컬럼)
+-- create index 인덱스 이름 on 테이블이름(인덱스를 걸 컬럼)
+create index memberid_idx on member(memberid);
+select *from memberid_idx;
+
 select count(*) from member;
 
-create index memberid_idx on member(memberid);
-select *from member;
+DROP INDEX memberid_idx on member;
 
 select * from member where memberid = 'test11'
 select A.*from (select*from member) A where A.memberid='test11'
