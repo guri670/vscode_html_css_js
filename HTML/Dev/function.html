@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function gugudan(a) {
+        // for (let n = 2; n <= 9; n++) {
+        //   if (a == n) {
+        //     for (let m = 1; m <= 9; m++) {
+        //       let k = 0;
+        //       k = n * m;
+        for (let i = 1; i <= 9; i++) {
+          let k = 0;
+          k = a * i;
+          document.write(a + "X" + i + " = " + k + "&nbsp;&nbsp;");
+          document.write("<br>");
+        }
+        return;
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      //함수 만드는 법
+      // 1. 형식 부터 만들어 놓는다.
+      // function oddSum() {
+      //   //홀수의 합을 구하는 함수
+      //   let sum = 0;
+      //   for (let i = 1; i <= 10; i++) {
+      //     if (i % 2 == 1) {
+      //       sum += i;
+      //     }
+      //   }
+      //   return sum;
+      // }
+      // let value = oddSum();
+      // document.write("합은? " +value);
+
+      let num = prompt("구구단 단을 입력하세요", "");
+      gugudan(num);
+    </script>
+  </body>
+</html>
