@@ -143,3 +143,101 @@ if(memberip = not null)
 
 select*from member;
 
+
+-- 댓글쓰기 1
+ALTER table board
+add originbidx int null;
+
+ALTER table board
+add depth int null;
+ALTER table board
+add level_ int null;
+
+-- 컬럼순서바꾸기
+alter table board
+MODIFY column originbidx int after bidx;
+alter table board
+MODIFY column depth int after originbidx;
+alter table board
+MODIFY column level_ int after depth;
+
+SELECT * from board
+
+update board set originbidx =bidx, depth=0, level_=0;
+
+-- 게시판 조회목록 쿼리
+SELECT * from board order by originbidx desc, depth asc;
+
+
+-- 답변달기 쿼리
+insert into board(originbidx,depth,level_,subject,contents,writer,midx)
+values(9,1,1,'9번글 답변','9번글답변내용','답변자',23);
+
+-- 또다른 답변 달기 (원글번호의 순서보다 큰 것들은 순서를 업데이트 하고 그 사이에 답변글을 입력한다.)
+update board set depth = depth+1 where originbidx = 9 and depth > 0;
+
+-- 답변하기 쿼리
+set Autocommit = 0; -- 수동 커밋으로 전환
+update board set depth = depth+1 where originbidx = 답변하려는 원글 번호 and depth > 원글의 순서;
+insert into board(originbidx,depth,level_,subject,contents,writer,midx)
+values(원글 번호,원글 순서 + 1,원글 답변 단계 +1,'답변제목','답변내용','닉네임',회원번호);
+commit; // update insert 일괄실행
+set Autocommit = 1; -- 자동 커밋으로 전환
+
+-- 수정하기 쿼리
+update board set subject = '수정할 제목 내용', contents = '수정할 내용' , writer = '작성자' ...
+modifyday = now() where bidx = '수정하려는 글 번호'
+
+-- 수정날짜 입력 컬럼 생성하기
+alter table board
+add modifyday datetime null;
+
+-- 삭제하기 쿼리 del문이 아닌 update문 사용
+update board set delyn = 'Y', modifyday = now() where bidx=삭제하려는 글 번호 ;
+
+-- 내용보기 쿼리
+select *from board where bidx = 내용을 보려고하는 글 번호;
+
+-- 목록 쿼리
+select *from board where delyn = 'N' order by originbidx desc, depth asc;
+
+-- 새글 입력 쿼리
+set autocommit = 0;
+insert into board(originbidx,depth,level_,subject,contents,writer,midx)
+values(null,0,0,'제목','내용','작성자',회원번호);
+update board set originbidx = (select max(bidx) from board) -- 방금 입력한 최대값
+where bidx = ()select max(bidx) from board);
+commit ;
+set autocommit = 1;
+
+-- 10만건 이상의 글이 저장되어있을때 최신 15개의 글만 나타내게 하는 방법(limit 기능)
+-- 페이징 목록쿼리
+select *from board where delyn = 'N' order by originbidx desc, depth asc limit 0,15; -- 0번행 부터 15개를 가져옴
+limit (페이지번호 -1)*15,15
+
+
+-- 댓글쓰기 2
+-- board 더미 데이터 만들어보기
+create procedure proctest2 (
+param_name varchar(20)
+)
+begin
+	declare i int;  -- 변수선언 타입과 같이
+	set i:=1;   -- 변수에 초기값 담기
+
+	while i<=1000 do
+
+	insert into board(originbidx,depth,level_,subject,contents,writer,midx)
+	values(null,0,0,concat(param_name,i),concat(param_name,i),concat(param_name,i),3);
+ 	set i = i + 1 ;
+	end while;  -- 반복문 끝
+end;
+
+call proctest2('게시판');
+
+select *from board;
+update board set originbidx = bidx;
+
+select *from board where delyn = 'N' order by originbidx desc, depth asc limit 1000,15;
+
+select *from reply;

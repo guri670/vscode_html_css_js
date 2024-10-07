@@ -373,7 +373,7 @@ select ifnull(memberip,'아이피가 존재하지않습니다.') as memberip fro
 
 --회원  ip가 null인 사람의 명단을 출력하세요
 XXXXX--select a.membername FROM member  a where a.memberip = null;
-select a.membername FROM member  a where a.memberip is null;
+select a.membername FROM member a where a.memberip is null;
 
 --날짜 함수 사용하기
 
@@ -532,5 +532,13 @@ select * from member where memberid = 'test11'
 select A.*from (select*from member) A where A.memberid='test11'
 
 
+jsp
+select *from member order by midx desc;
 
+select *from member where memberid = 'test100' and memberpwd='1234';
 
+select *from member where memberid = ''or 1='1' and memberpwd='1234';
+
+-- 컬럼이름 변경
+alter table member
+change column memberpw memberpwd varchar(100);
