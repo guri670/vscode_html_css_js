@@ -111,3 +111,4 @@
 	  e = c.sort(); // 정렬을 해준다.
 	  document.write ("e 값은? "+ e + "<br>");
 
+console.log("hi");
