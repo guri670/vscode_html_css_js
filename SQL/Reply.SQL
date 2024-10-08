@@ -84,3 +84,28 @@ select A.bidx, membername, memberphone from Board A
 join reply B on A.bidx = B.bidx
 join member C on C.midx = B.midx
 where B. rsubject in ('악플');
+
+-- 회원들이 2번 게시글에 대한 댓글이 각각 몇개씩 작성했는지 출력해주세요
+1. 조인을 한다
+2. 데이터를 확인한다
+3. 그룹을 짓는다
+4. 집계함수를 사용해서 갯수를 찾아낸다
+
+select * from member A
+left join board B on A.midx = B.midx
+join reply C on B.bidx = C.bidx
+where B.bidx = 2;
+
+1. select A.midx,count(ridx) from member A left join
+(select C.midx ,C.ridx , B.bidx from board B join reply C on B.bidx = C.bidx where B.bidx=2) D
+on A.midx = D.midx
+group by A.midx
+
+2. select A.midx, count(B.ridx) from member A left join (select *from reply where bidx = 2) B on A.midx = B.midx
+group by A.midx
+
+-- select *from reply where bidx = 2 > 2번 게시글의 덧글 전부를 찾아내는 쿼리
+
+3. select a.midx , count(AA.ridx) from member A left join
+(select C.midx, C.ridx from board B join reply C on C.bidx = B.bidx
+where B.bidx = 2) AA on A.midx = AA.midx group by A.midx
