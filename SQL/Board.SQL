@@ -166,7 +166,7 @@ SELECT * from board
 update board set originbidx =bidx, depth=0, level_=0;
 
 -- 게시판 조회목록 쿼리
-SELECT * from board order by originbidx desc, depth asc;
+SELECT * from board order by originbidx asc;
 
 
 -- 답변달기 쿼리
@@ -241,3 +241,5 @@ update board set originbidx = bidx;
 select *from board where delyn = 'N' order by originbidx desc, depth asc limit 1000,15;
 
 select *from reply;
+
+select *from member order by midx desc;
