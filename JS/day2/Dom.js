@@ -1,6 +1,6 @@
 //DOM 객체 제어하기
 let c = document.getElementById("firstP"); // 속성값 id로 객체를 찾는다
-
+document.write("<br>")
 document.write("객체의 id는? " + c.id + "<br>");
 document.write("객체의 태그는? " + c.tagName + "<br>");
 document.write("객체가 담고있는 내용은? " + c.innerHTML + "<br>");
