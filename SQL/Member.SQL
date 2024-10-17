@@ -542,3 +542,16 @@ select *from member where memberid = ''or 1='1' and memberpwd='1234';
 -- 컬럼이름 변경
 alter table member
 change column memberpw memberpwd varchar(100);
+
+-- 로그인 체크하는 쿼리 만들기
+select * from member where memberid = 'hong' and memberpwd = '1234';
+
+-- 회원 목록 쿼리 만들기
+select * from member where delyn = 'N' order by midx desc;
+
+select count(*) from member where delyn='N';
+
+-- 아이디 체크 쿼리 만들기
+select * from member where memberid = "test1"
+
+select count(*) as cnt from member where memberid = "hong" order by midx desc;
