@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size:15px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list_title {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.list_warp{
+  width: 800px;
+
+}
+
+.list_search {
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+.list_search > div {
+  width: 100%;
+}
+
+.list_search_bt{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  
+}
+
+.bt_wrap {
+  margin-top: 30px;
+  text-align: right;
+  font-size: 0;
+}
+
+
+.bt_wrap a {
+  display: inline-block;
+  min-width: 80px;
+  margin-left: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 2px;
+  font-size: 1rem;
+}
+
+.bt_wrap a:first-child {
+  margin-left: 0;
+}
+
+.bt_wrap a.on {
+  background: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.list_index > div > div {
+  display: inline-block;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.list_index > div.top {
+  border-top: 2px solid orange;
+  font-size: 0;
+}
+
+.list_index > div {
+  border-bottom: 1px solid #ddd;
+  font-size: 0;
+}
+
+.list_index > div.top {
+  border-bottom: 1px solid #999;
+}
+
+.list_index > div:last-child {
+  border-bottom: 1px solid #000;
+}
+
+.list_index .num {
+  width: 10%;
+}
+
+.list_index .title {
+  width: 40%;
+  text-align: left;
+  padding-left: 2rem;
+}
+
+.list_index .top .title {
+  text-align: center;
+}
+
+.list_index .writer {
+  width: 10%;
+}
+
+.list_index .count {
+  width: 15%;
+}
+
+.list_index .date {
+  width: 15%;
+}
+
+.list_warp_page {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.list_warp_page .on {
+  background:#000;
+  border-color: #000;
+  color:#ddd
+}
+

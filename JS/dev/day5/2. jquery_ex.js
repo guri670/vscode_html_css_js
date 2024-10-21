@@ -17,15 +17,12 @@ $(document).ready(function(){
 
   $("#btn3").click(function(){
     $("#div1").fadeIn();
-    $("#div2").fadeIn("slow");
+    $("#div2").fadeIn("slow"); 
     $("#div3").fadeIn(3000);
   })
 
   $("#filep").click(function(){
     $("#panel").slideDown("slow");
-  });
-  $("#filep").dblclick(function(){
-    $("#panel").slideup("slow")
   });
 }); 
 

@@ -243,3 +243,23 @@ select *from board where delyn = 'N' order by originbidx desc, depth asc limit 1
 select *from reply;
 
 select *from member order by midx desc;
+
+select *from board order by originbidx desc, depth asc limit 0, 15;
+
+-- 1. 게시물의 총 수를 구하는 쿼리를 작성하기
+select count(*) as cnt from Board where delyn='N';
+
+-- 2. 전체 게시물 가져오기
+select *from board order by originbidx desc limit 0,15;
+
+-- board 비밀번호 컬럼 만들기 password varchar(100)
+alter table board add password varchar(100) null;
+
+-- 게시판에 작성한 내용을 DB 저장할 쿼리 작성하기
+insert into board (originbidx,depth,level_,subject,cotents,writer,password,midx)
+value(null,0,0,'제목','내용','작성자','비밀번호','회원번호');
+
+update board set originbidx = (select A.maxbidx from(select max(bidx) as maxbidx from board)A); -- 최고값
+
+originbidx 자동으로 들어가야하기때문에 null
+depth , level_ 글이 작성되면 댓글이나 대댓글이 없고 글이 달리면 증가하기 때문에 0
