@@ -263,3 +263,18 @@ update board set originbidx = (select A.maxbidx from(select max(bidx) as maxbidx
 
 originbidx 자동으로 들어가야하기때문에 null
 depth , level_ 글이 작성되면 댓글이나 대댓글이 없고 글이 달리면 증가하기 때문에 0
+
+select * from board order by bidx desc;
+select count(*) as cnt from board order by originbidx desc;
+
+-- 게시물 내용 가져오기 쿼리 작성
+select *from board where delyn='N' and bidx=102;
+
+-- 수정할 게시물의 번호 가져오기 쿼리 작성
+select *from board where delyn='N' and bidx=101;
+
+alter table board
+add modifyday datetime null;
+
+-- 게시물 수정할 쿼리 작성
+update board set subject='제목', contents='내용', writer='작성자', modifyday= now() where bidx=키값 and password='넘어온 패스워드';
